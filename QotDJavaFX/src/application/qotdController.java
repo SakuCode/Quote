@@ -1,22 +1,17 @@
 package application;
 
 import java.io.IOException;
-
 import org.json.JSONException;
-
 import com.mashape.unirest.http.exceptions.UnirestException;
-
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class qotdController {
+public class QotdController {
 	
-	QuoteOfTheDay quote;
     @FXML
    private Button BackBtn;
     @FXML
@@ -28,6 +23,7 @@ public class qotdController {
     public void initialize() throws JSONException, UnirestException
     {
     	QuoteOfTheDay quote = new QuoteOfTheDay();
+    	
 		Quote.setText(quote.getQuote());
     	Author.setText(quote.getAuthor());
     }
@@ -35,7 +31,7 @@ public class qotdController {
     
     @FXML
     private void BackBtnOnAction(ActionEvent event) {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/cool.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/MainMenu.fxml"));
 		Parent root;
 		try {
 			root = (Parent)loader.load();

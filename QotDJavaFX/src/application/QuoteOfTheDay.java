@@ -10,22 +10,28 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 public class QuoteOfTheDay {
 	
 	HttpResponse<String> response;
+	
 	JSONObject jsonObj;
 	JSONObject quoteFrom;
+	
 	String quote;
 	String author;
 	
 	
 	QuoteOfTheDay() throws UnirestException, JSONException
 	{
-		
+		//Gets the Quote.com quote as a string
 		response = Unirest.get("https://rapidapi.p.rapidapi.com/quotes/random/")
 			.header("x-rapidapi-host", "quotes15.p.rapidapi.com")
 			.header("x-rapidapi-key", "62338f1ad7msh469beaf3100930cp119448jsn0adeaf338c66")
 			.asString();
 
 		jsonObj = new JSONObject(response.getBody());
+		
+		//quote JSON string
 		quote = (String) jsonObj.get("content");
+		
+		//The quotes author
 		quoteFrom = jsonObj.getJSONObject("originator");
 		author = (String) quoteFrom.get("name");
 	}

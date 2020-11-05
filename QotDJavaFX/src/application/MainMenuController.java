@@ -12,9 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 
-public class fxmlController {
-	
-	qotdController a;
+public class MainMenuController {
 	
     @FXML
    private Button QuoteOfTheDay;
@@ -22,12 +20,14 @@ public class fxmlController {
     @FXML
    private Button Exit;
     
+    
+    //Opens the QuotePage when pressing the QuoteOfTheDay button
     @FXML
     private void QuoteOfTheDayOnAction(ActionEvent e) throws JSONException, UnirestException 
     {
-    	
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/QuotePage.fxml"));
 		Parent root;
+		
 		try {
 			root = (Parent)loader.load();
 			QuoteOfTheDay.getScene().setRoot(root);
