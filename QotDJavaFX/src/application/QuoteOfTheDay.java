@@ -20,10 +20,13 @@ public class QuoteOfTheDay {
 	
 	QuoteOfTheDay() throws UnirestException, JSONException
 	{
-		//Gets the Quote.com quote as a string
+		/*
+		Gets the Quote.com quote as a string
+		PUT YOUR API KEY IN THE KEY PART
+		*/
 		response = Unirest.get("https://rapidapi.p.rapidapi.com/quotes/random/")
 			.header("x-rapidapi-host", "quotes15.p.rapidapi.com")
-			.header("x-rapidapi-key", "62338f1ad7msh469beaf3100930cp119448jsn0adeaf338c66")
+			.header("x-rapidapi-key", "YOUR API KEY")
 			.asString();
 
 		jsonObj = new JSONObject(response.getBody());
